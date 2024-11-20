@@ -19,7 +19,7 @@ jobs:
       - name: make
         run: cd build && make
       - name: where I am
-        run: ls -la && pwd
+        run: ls -la && pwd && ls -la build
       - name: Run Test
         run: build/test/test
       - name: Create Release
