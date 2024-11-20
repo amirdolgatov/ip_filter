@@ -19,9 +19,9 @@ jobs:
       - run: cmake --build . --target test
       - run: cmake --build . --target package
       - name: where I am
-        run: ls -la && pwd && ls -la build
+        run: ls -la && pwd
       - name: Run Test
-        run: build/test/test
+        run: test
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -39,6 +39,6 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/ip_filter-0.0.${{ github.run_number }}-Linux.deb
+          asset_path: ./ip_filter-0.0.${{ github.run_number }}-Linux.deb
           asset_name: ip_filter-0.0.${{ github.run_number }}-Linux.deb
           asset_content_type: application/vnd.debian.binary-package
