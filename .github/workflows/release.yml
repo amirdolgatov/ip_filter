@@ -21,7 +21,7 @@ jobs:
       - name: where I am
         run: ls -la && pwd && ls -la test
       - name: Run Test
-        run: ./test
+        run: test/test
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
