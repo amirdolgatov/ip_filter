@@ -14,10 +14,10 @@ jobs:
       - name: Install gtest manually
         run: sudo apt-get install libgtest-dev
       - uses: actions/checkout@v1
-      - name: configure
-        run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
-      - name: make
-        run: cd build && make
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }} -DWITH_BOOST_TEST=ON
+      - run: cmake --build .
+      - run: cmake --build . --target test
+      - run: cmake --build . --target package
       - name: where I am
         run: ls -la && pwd && ls -la build
       - name: Run Test
