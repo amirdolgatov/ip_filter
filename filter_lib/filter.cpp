@@ -57,6 +57,7 @@ int ipv4_addr::operator[](uint8_t index){
     }
     catch (OutOfRange& ex){
         std::cout << "Index is out of range " << ex.index << std::endl;
+        return 0;
     }
 
 }
@@ -106,6 +107,7 @@ std::vector<ipv4_addr> create_ip_pool(const std::string filename) {
     }
     catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
+        return std::vector<ipv4_addr>{};
     }
 }
 
