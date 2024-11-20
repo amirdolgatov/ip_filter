@@ -17,6 +17,8 @@ jobs:
         run: mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-Werror" ..
       - name: make
         run: cd build && make
+      - name: where I am
+        run: ls -la && pwd
       - name: Run Test
         run: test/test
       - name: Create Release
